@@ -1,67 +1,67 @@
 /* --- 1. FONT LOADING (Matches your exact .otf files) --- */
 @font-face {
   font-family: 'PPMori';
-  src: url('/public/fonts/PPMori-Regular.otf') format('opentype');
+  src: url('/fonts/PPMori-Regular.otf') format('opentype');
   font-weight: normal;
 }
 
 @font-face {
   font-family: 'PPMori';
-  src: url('/public/fonts/PPMori-SemiBold.otf') format('opentype');
+  src: url('/fonts/PPMori-SemiBold.otf') format('opentype');
   font-weight: bold;
 }
 
 @font-face {
   font-family: 'neoplixel';
-  src: url('/public/fonts/neopixel-regular.otf') format('opentype');
+  src: url('/fonts/neopixel-regular.otf') format('opentype');
   font-weight: normal;
 }
 
 @font-face {
   font-family: 'Chillax';
-  src: url('/public/fonts/Chillax-Regular.otf') format('opentype');
+  src: url('/fonts/Chillax-Regular.otf') format('opentype');
   font-weight: normal;
 }
 
 @font-face {
   font-family: 'Chillax';
-  src: url('/public/fonts/Chillax-Bold.otf') format('opentype');
+  src: url('/fonts/Chillax-Bold.otf') format('opentype');
   font-weight: bold;
 }
 
 /* Ensure you also have PPNeueMontreal and Zpix correctly named in that folder! */
 @font-face {
   font-family: 'PP Neue Montreal';
-  src: url('/public/fonts/PPNeueMontreal-Medium.otf') format('opentype');
+  src: url('/fonts/PPNeueMontreal-Medium.otf') format('opentype');
 }
 
 @font-face {
   font-family: 'Zpix';
-  src: url('/public/fonts/Zpix.ttf') format('truetype');
+  src: url('/fonts/zpix.ttf') format('truetype');
   /* Update this if your Zpix is also .otf */
 }
 
 @font-face {
   font-family: 'Druk';
-  src: url('/public/fonts/Druk Family/Druk-Bold-Trial.otf') format('opentype');
+  src: url('/fonts/Druk Family/Druk-Bold-Trial.otf') format('opentype');
   font-weight: bold;
 }
 
 @font-face {
   font-family: 'Universo';
-  src: url('/public/fonts/Fontspring-DEMO-universo-bold.otf') format('opentype');
+  src: url('/fonts/Fontspring-DEMO-universo-bold.otf') format('opentype');
   font-weight: bold;
 }
 
 @font-face {
   font-family: 'Universo';
-  src: url('/public/fonts/Fontspring-DEMO-universo-regular.otf') format('opentype');
+  src: url('/fonts/Fontspring-DEMO-universo-regular.otf') format('opentype');
   font-weight: normal;
 }
 
 @font-face {
   font-family: 'Universo';
-  src: url('/public/fonts/Fontspring-DEMO-universo-black.otf') format('opentype');
+  src: url('/fonts/Fontspring-DEMO-universo-black.otf') format('opentype');
   font-weight: 900;
 }
 
