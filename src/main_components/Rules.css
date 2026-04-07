@@ -1,0 +1,449 @@
+/* src/main_components/Rules.css */
+
+.rules-section {
+  width: 100vw;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  padding: clamp(40px, 6vw, 100px) clamp(20px, 5vw, 80px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* ===== BACKGROUND IMAGE (appears on hover) ===== */
+.rules-bg-container {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.rules-bg-image {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+}
+
+.rules-bg-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.65;
+  filter: brightness(0.47);
+}
+
+/* Heavy vignette blur at edges */
+.rules-bg-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center,
+      transparent 20%,
+      rgba(12, 12, 12, 0.6) 50%,
+      rgba(12, 12, 12, 0.95) 75%,
+      #0c0c0c 100%);
+  pointer-events: none;
+}
+
+/* ===== CONTENT ===== */
+.rules-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(30px, 4vw, 60px);
+}
+
+/* ===== TOP STATEMENT ===== */
+.rules-statement {
+  max-width: 100%;
+  text-align: left;
+  position: relative;
+}
+
+.rules-statement-text {
+  font-family: 'PPMori', sans-serif;
+  font-size: clamp(22px, 3.2vw, 48px);
+  font-weight: 500;
+  line-height: 1.25;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+
+.rules-statement-red {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  color: #FF1919;
+  pointer-events: none;
+  margin: 0;
+}
+
+/* ===== DIVIDER ===== */
+.rules-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(255, 25, 25, 0.4) 20%,
+      rgba(255, 255, 255, 0.15) 50%,
+      rgba(255, 25, 25, 0.4) 80%,
+      transparent);
+}
+
+/* ===== BOTTOM SECTION ===== */
+.rules-bottom {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: clamp(30px, 4vw, 60px);
+  align-items: start;
+}
+
+/* ===== LEFT: LABEL + CARDS ===== */
+.rules-left {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.rules-label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rules-label {
+  font-family: 'PPMori', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* ===== CARDS GRID ===== */
+.rules-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.rule-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: clamp(16px, 2vw, 28px);
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  overflow: hidden;
+}
+
+.rule-card:hover {
+  background: rgba(255, 25, 25, 0.06);
+  border-color: rgba(255, 25, 25, 0.3);
+  box-shadow:
+    0 0 30px rgba(255, 25, 25, 0.08),
+    inset 0 0 30px rgba(255, 25, 25, 0.03);
+}
+
+.rule-card--active {
+  min-height: 280px;
+}
+
+/* Corner bracket accents */
+.rule-corner {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-color: rgba(255, 255, 255, 0.15);
+  transition: border-color 0.3s;
+}
+
+.rule-card:hover .rule-corner {
+  border-color: var(--color-primary, #FF1919);
+}
+
+.rule-card:hover .rule-card-title {
+  color: var(--color-primary, #FF1919);
+}
+
+.rule-corner--tl {
+  top: 6px;
+  left: 6px;
+  border-top: 2px solid;
+  border-left: 2px solid;
+  border-color: inherit;
+}
+
+.rule-corner--br {
+  bottom: 6px;
+  right: 6px;
+  border-bottom: 2px solid;
+  border-right: 2px solid;
+  border-color: inherit;
+}
+
+.rule-card-inner {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 8px;
+}
+
+.rule-card-number {
+  font-family: 'PPMori', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-primary, #FF1919);
+  opacity: 0.7;
+  letter-spacing: 0.2em;
+  margin-bottom: 4px;
+}
+
+.rule-card-title {
+  font-family: 'PPMori', sans-serif;
+  font-size: clamp(16px, 1.4vw, 22px);
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* Expanded details on hover */
+.rule-card-expanded {
+  margin-top: auto;
+  padding-top: 12px;
+}
+
+.rule-card-details {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.rule-card-details li {
+  font-family: 'PPMori', sans-serif;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.4;
+  padding-left: 12px;
+  position: relative;
+}
+
+.rule-card-details li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--color-primary, #FF1919);
+  font-size: 10px;
+}
+
+/* ===== RIGHT SIDE ===== */
+.rules-right {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-top: 28px;
+}
+
+.rules-right-header {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.rules-est {
+  font-family: 'PPMori', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: rgba(255, 255, 255, 0.4);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 6px;
+}
+
+.rules-right-body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.rules-right-text {
+  font-family: 'PPMori', sans-serif;
+  font-size: clamp(13px, 1.1vw, 15px);
+  font-weight: 400;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.55);
+  margin: 0;
+}
+
+.rules-right-text strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.rules-right-text--highlight {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: clamp(14px, 1.2vw, 16px);
+  line-height: 1.7;
+}
+
+/* ===== RESPONSIVE ===== */
+/* ===== RESPONSIVE: TABLET ===== */
+@media screen and (max-width: 1024px) {
+  .rules-section {
+    padding: clamp(30px, 5vw, 60px) clamp(16px, 4vw, 40px);
+  }
+
+  .rules-bottom {
+    grid-template-columns: 1fr;
+  }
+
+  .rules-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .rules-right {
+    padding-top: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 30px;
+  }
+
+  .rules-statement-text {
+    font-size: clamp(20px, 3.5vw, 36px);
+  }
+}
+
+/* ===== RESPONSIVE: MOBILE ===== */
+@media screen and (max-width: 600px) {
+  .rules-section {
+    padding: 40px 16px 60px;
+    min-height: auto;
+  }
+
+  .rules-content {
+    gap: 24px;
+  }
+
+  .rules-statement-text {
+    font-size: clamp(18px, 5.5vw, 26px);
+    line-height: 1.3;
+    text-align: left;
+  }
+
+  .rules-statement-red {
+    display: none;
+  }
+
+  .rules-bg-image img {
+    object-position: center center;
+    opacity: 0.5;
+    filter: brightness(0.38);
+  }
+
+  .rules-bg-image::after {
+    background: radial-gradient(ellipse at center,
+        transparent 10%,
+        rgba(12, 12, 12, 0.7) 40%,
+        rgba(12, 12, 12, 0.95) 65%,
+        #0c0c0c 100%);
+  }
+
+  .rules-cards {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .rule-card {
+    min-height: 120px;
+    padding: 16px;
+  }
+
+  .rule-card--active {
+    min-height: 160px;
+  }
+
+  .rule-card-title {
+    font-size: 16px;
+  }
+
+  .rule-card-number {
+    font-size: 10px;
+  }
+
+  .rule-card-details li {
+    font-size: 11px;
+  }
+
+  .rules-right {
+    gap: 14px;
+  }
+
+  .rules-right-text {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .rules-right-text--highlight {
+    font-size: 14px;
+  }
+
+  .rules-label {
+    font-size: 11px;
+  }
+
+  .rules-est {
+    font-size: 11px;
+  }
+
+  .rules-hover-hint {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    display: block;
+    margin-top: 24px;
+    font-size: 10px;
+    text-align: center;
+  }
+}
+
+/* ===== RESPONSIVE: SMALL MOBILE ===== */
+@media screen and (max-width: 380px) {
+  .rules-statement-text {
+    font-size: 17px;
+  }
+
+  .rule-card {
+    min-height: 100px;
+    padding: 14px;
+  }
+
+  .rule-card-title {
+    font-size: 15px;
+  }
+}
+
+/* ===== BOTTOM-LEFT HINT ===== */
+.rules-hover-hint {
+  position: absolute;
+  bottom: clamp(16px, 3vw, 40px);
+  left: clamp(20px, 5vw, 80px);
+  font-family: 'Zpix', monospace;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: rgba(255, 255, 255, 0.3);
+  text-transform: uppercase;
+  z-index: 2;
+  user-select: none;
+}

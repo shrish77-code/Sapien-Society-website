@@ -1,0 +1,112 @@
+/* --- 1. FONT LOADING (Matches your exact .otf files) --- */
+@font-face {
+  font-family: 'PPMori';
+  src: url('/public/fonts/PPMori-Regular.otf') format('opentype');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'PPMori';
+  src: url('/public/fonts/PPMori-SemiBold.otf') format('opentype');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'neoplixel';
+  src: url('/public/fonts/neopixel-regular.otf') format('opentype');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Chillax';
+  src: url('/public/fonts/Chillax-Regular.otf') format('opentype');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Chillax';
+  src: url('/public/fonts/Chillax-Bold.otf') format('opentype');
+  font-weight: bold;
+}
+
+/* Ensure you also have PPNeueMontreal and Zpix correctly named in that folder! */
+@font-face {
+  font-family: 'PP Neue Montreal';
+  src: url('/public/fonts/PPNeueMontreal-Medium.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Zpix';
+  src: url('/public/fonts/Zpix.ttf') format('truetype');
+  /* Update this if your Zpix is also .otf */
+}
+
+@font-face {
+  font-family: 'Druk';
+  src: url('/public/fonts/Druk Family/Druk-Bold-Trial.otf') format('opentype');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'Universo';
+  src: url('/public/fonts/Fontspring-DEMO-universo-bold.otf') format('opentype');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'Universo';
+  src: url('/public/fonts/Fontspring-DEMO-universo-regular.otf') format('opentype');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Universo';
+  src: url('/public/fonts/Fontspring-DEMO-universo-black.otf') format('opentype');
+  font-weight: 900;
+}
+
+/* --- 2. RESET TO REMOVE WHITE SPACE --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  min-height: 100vh;
+  --grid-color: #1e1e1e;
+  background-color: #0c0c0c;
+  background-image: linear-gradient(0deg,
+      transparent 24%,
+      var(--grid-color) 25%,
+      var(--grid-color) 26%,
+      transparent 27%,
+      transparent 74%,
+      var(--grid-color) 75%,
+      var(--grid-color) 76%,
+      transparent 77%,
+      transparent),
+    linear-gradient(90deg,
+      transparent 24%,
+      var(--grid-color) 25%,
+      var(--grid-color) 26%,
+      transparent 27%,
+      transparent 74%,
+      var(--grid-color) 75%,
+      var(--grid-color) 76%,
+      transparent 77%,
+      transparent);
+  background-size: 55px 55px;
+  overflow-x: hidden;
+  position: relative;
+}
+
+#root {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  position: relative;
+}

@@ -1,0 +1,194 @@
+/* src/main_components/ManifestoScroll.css */
+
+/* The section itself is what GSAP pins */
+.manifesto-section {
+  width: 100vw;
+  height: 100vh;
+  --grid-color: #1e1e1e;
+  background-color: #0c0c0c;
+  background-image: linear-gradient(
+      0deg,
+      transparent 24%, var(--grid-color) 25%, var(--grid-color) 26%, transparent 27%,
+      transparent 74%, var(--grid-color) 75%, var(--grid-color) 76%, transparent 77%, transparent
+    ),
+    linear-gradient(
+      90deg,
+      transparent 24%, var(--grid-color) 25%, var(--grid-color) 26%, transparent 27%,
+      transparent 74%, var(--grid-color) 75%, var(--grid-color) 76%, transparent 77%, transparent
+    );
+  background-size: 55px 55px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Wrapper for the 3 main text lines — keeps them left-aligned with padding */
+.manifesto-text-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: clamp(20px, 8vw, 150px);
+  padding-top: clamp(10px, 2vh, 30px);
+  padding-bottom: clamp(10px, 2vh, 30px);
+  z-index: 2;
+}
+
+/* ===== MARQUEE SYSTEM ===== */
+.marquee-track {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: clamp(4px, 0.6vh, 10px) 0;
+  z-index: 1;
+}
+
+.marquee-row {
+  display: inline-flex;
+  white-space: nowrap;
+  will-change: transform;
+}
+
+.marquee-row span {
+  display: inline-block;
+  padding-right: 2rem;
+  font-family: 'Chillax', sans-serif;
+  font-size: clamp(12px, 1.6vw, 22px);
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+/* Base layer marquee: red text */
+.marquee-base-text span {
+  color: var(--color-primary, #FF1919);
+}
+
+/* Overlay layer marquee: black text */
+.marquee-overlay-text span {
+  color: #000000;
+}
+
+/* Scroll LEFT animation */
+.marquee-left {
+  animation: marquee-scroll-left 70s linear infinite;
+}
+
+/* Scroll RIGHT animation */
+.marquee-right {
+  animation: marquee-scroll-right 70s linear infinite;
+}
+
+@keyframes marquee-scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-scroll-right {
+  0% {
+    transform: translateX(-50%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* ===== MAIN TEXT ===== */
+.manifesto-text {
+  font-family: 'Chillax', sans-serif;
+  font-size: clamp(30px, 7vw, 110px);
+  font-weight: bold;
+  text-align: left;
+  text-transform: uppercase;
+  margin: 0;
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+  white-space: nowrap !important;
+
+  /* Horizontal gradient mask: starts at 100% (gray) and GSAP wipes to 0% (red) */
+  background: linear-gradient(to right, var(--color-primary, #FF1919) 50%, rgba(255, 255, 255, 0.15) 50%);
+  background-size: 200% 100%;
+  background-position-x: 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+
+  will-change: background-position;
+}
+
+/* Visually staggers the text lines */
+.indented-1 {
+  margin-left: 8vw;
+}
+
+.indented-2 {
+  margin-left: 16vw;
+}
+
+.manifesto-text .dash {
+  font-weight: 300;
+  margin: 0 0.15em;
+}
+
+/* ===== CIRCLE OVERLAY ===== */
+.manifesto-overlay {
+  --clip-size: 0%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-primary, #FF1919);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  -webkit-clip-path: circle(var(--clip-size) at 50% 50%);
+  clip-path: circle(var(--clip-size) at 50% 50%);
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* Overlay text is flat black on the red background */
+.overlay-text {
+  background: none;
+  -webkit-text-fill-color: #000000;
+  color: #000000;
+  text-shadow: none;
+}
+
+/* ===== RESPONSIVE ===== */
+@media screen and (max-width: 768px) {
+
+  .manifesto-text-block,
+  .manifesto-overlay .manifesto-text-block {
+    padding-left: 5vw;
+  }
+
+  .indented-1 {
+    margin-left: 5vw;
+  }
+
+  .indented-2 {
+    margin-left: 2vw;
+  }
+
+  .manifesto-text {
+    font-size: clamp(24px, 7vw, 60px);
+    line-height: 1.1;
+    white-space: normal;
+  }
+
+  .marquee-row span {
+    font-size: clamp(10px, 2.5vw, 16px);
+  }
+}
