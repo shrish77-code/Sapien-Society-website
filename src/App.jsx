@@ -9,6 +9,7 @@ import Society from './main_components/Society';
 import Contact from './main_components/Contact';
 import WipeTransition from './main_components/WipeTransition';
 import Loader from './main_components/Loader';
+import BackButton from './main_components/BackButton';
 
 function App() {
   const [showLoader, setShowLoader] = useState(true);
@@ -84,11 +85,14 @@ function App() {
       {contentReady && (
         <>
           <Hero onNavigate={triggerTransition} />
-          <NodeNetwork onNavigate={triggerTransition} />
+          <div id="node-network-anchor">
+            <NodeNetwork onNavigate={triggerTransition} />
+          </div>
           <ManifestoScroll />
           <Rules />
           <Society />
           <Contact />
+          <BackButton />
           <WipeTransition
             isActive={transition.active}
             url={transition.url}

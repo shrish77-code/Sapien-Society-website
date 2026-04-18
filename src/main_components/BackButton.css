@@ -1,0 +1,122 @@
+/* ===== BACK BUTTON ===== */
+.back-button-fixed {
+  position: fixed;
+  bottom: 32px;
+  left: 32px;
+  z-index: 9990;
+  pointer-events: auto;
+}
+
+.back-button-btn {
+  position: relative;
+  background: #FF1919;
+  color: #0c0c0c;
+  font-family: 'Zpix', monospace;
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: 2px solid #0c0c0c;
+  padding: 12px 24px;
+  cursor: pointer;
+  transition: background 0.25s ease, color 0.25s ease, transform 0.2s ease;
+  white-space: nowrap;
+}
+
+.back-button-btn:hover {
+  background: #0c0c0c;
+  color: #FF1919;
+  border-color: #FF1919;
+  transform: scale(1.03);
+}
+
+.back-button-btn:active {
+  transform: scale(0.97);
+}
+
+/* Corner accents - matching the Hero button style */
+.back-btn-corner {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border: 2px solid #0c0c0c;
+  transition: border-color 0.25s ease;
+}
+
+.back-button-btn:hover .back-btn-corner {
+  border-color: #FF1919;
+}
+
+.back-btn-tl {
+  top: -5px;
+  left: -5px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.back-btn-br {
+  bottom: -5px;
+  right: -5px;
+  border-left: none;
+  border-top: none;
+}
+
+.back-btn-text {
+  display: inline-block;
+}
+
+/* Subtle scan-line animation on idle */
+.back-button-btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 100%
+  );
+  animation: backBtnScanline 3s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes backBtnScanline {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
+/* ===== MOBILE RESPONSIVENESS ===== */
+@media screen and (max-width: 768px) {
+  .back-button-fixed {
+    bottom: 20px;
+    left: 16px;
+  }
+
+  .back-button-btn {
+    font-size: 10px;
+    padding: 10px 16px;
+    letter-spacing: 0.05em;
+  }
+
+  .back-btn-corner {
+    width: 8px;
+    height: 8px;
+  }
+
+  .back-btn-tl {
+    top: -4px;
+    left: -4px;
+  }
+
+  .back-btn-br {
+    bottom: -4px;
+    right: -4px;
+  }
+}

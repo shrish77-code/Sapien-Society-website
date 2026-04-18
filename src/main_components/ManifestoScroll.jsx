@@ -34,7 +34,7 @@ const ManifestoScroll = () => {
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top top",
-          end: "+=300%",
+          end: "+=225%",
           scrub: 0.8,
           pin: true,
           anticipatePin: 1,
@@ -64,7 +64,7 @@ const ManifestoScroll = () => {
       });
 
       // Phase 5: Hold the full red state before unpinning
-      tl.to({}, { duration: 1.5 });
+      tl.to({}, { duration: 0.7 });
 
     }, sectionRef);
 

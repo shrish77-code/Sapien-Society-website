@@ -31,7 +31,7 @@ const Contact = () => {
       {/* Main Content */}
       <div className="contact-content">
         <h2 className="contact-title">VENI.VIDI.VICI</h2>
-        <a href="#" className="contact-button" aria-label="Join Us Google Form">
+        <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=9NpbLPKP2Uu9VHxQqyGVkPSN3IJPQDtFrLNKfxMy0nRURFE0UVBUNkhRMEgzTTZWVjNFREtBU1ZYWS4u" target="_blank" rel="noopener noreferrer" className="contact-button" aria-label="Join Us Registration Form">
           <span>JOIN US</span>
         </a>
       </div>

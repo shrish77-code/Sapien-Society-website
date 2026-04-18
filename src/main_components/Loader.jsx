@@ -16,20 +16,20 @@ const Loader = ({ onEnter }) => {
 
     intervalRef.current = setInterval(() => {
       const remaining = 100 - current;
-      // To target ~8 seconds (8000ms) with 80ms intervals, we need ~100 steps.
-      // 100 / 100 = 1 step per interval.
+      // To target ~4.5 seconds (4500ms) with 60ms intervals, we need ~75 steps.
+      // Bigger jumps per interval to complete faster.
       const jump = Math.max(
-        0.2,
-        Math.random() * Math.min(remaining * 0.05, 1.5)
+        0.4,
+        Math.random() * Math.min(remaining * 0.09, 2.5)
       );
       current = Math.min(100, current + jump);
       setProgress(Math.round(current));
 
       if (current >= 100) {
         clearInterval(intervalRef.current);
-        setTimeout(() => setLoadComplete(true), 600);
+        setTimeout(() => setLoadComplete(true), 400);
       }
-    }, 80);
+    }, 60);
 
     return () => clearInterval(intervalRef.current);
   }, []);
