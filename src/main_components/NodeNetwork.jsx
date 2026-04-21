@@ -91,7 +91,7 @@ export default function NodeNetwork({ onNavigate }) {
       const isMobile = window.innerWidth < 768;
       REPEATS = isMobile ? 1 : 2;
       EXTRA_NODES = isMobile ? 6 : 8;
-      CONN_DIST = isMobile ? 180 : 2000;
+      CONN_DIST = isMobile ? Math.max(window.innerWidth * 0.5, 600) : 2000;
       HOVER_DIST = isMobile ? 80 : 50;
 
       state.nodes = buildNodes(canvas.width, canvas.height);
