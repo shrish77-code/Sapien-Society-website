@@ -26,6 +26,7 @@
     );
   background-size: 55px 55px;
   height: 100vh;
+  height: 100svh;
   width: 100vw;
   display: flex;
   align-items: stretch;
@@ -531,6 +532,7 @@
   .hero-wrapper {
     height: auto;
     min-height: 100vh;
+    min-height: 100svh;
     padding: 10px;
     overflow-x: hidden;
     overflow-y: auto;

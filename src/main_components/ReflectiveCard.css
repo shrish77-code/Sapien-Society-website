@@ -182,3 +182,11 @@
 .fingerprint-icon {
   opacity: 0.4;
 }
+
+/* ===== RESPONSIVE: MOBILE ===== */
+@media screen and (max-width: 768px) {
+  .reflective-video {
+    /* Remove heavy SVG filter for mobile performance */
+    filter: saturate(var(--saturation, 0)) contrast(120%) brightness(110%) blur(var(--blur-strength, 12px));
+  }
+}
