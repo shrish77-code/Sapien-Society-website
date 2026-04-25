@@ -92,9 +92,9 @@ const Hero = ({ onNavigate }) => {
               <div className="button-wrapper">
                 <div className="btn-corner top-left"></div>
                 <div className="btn-corner bottom-right"></div>
-                <button className="know-more-btn" onClick={() => onNavigate && onNavigate('/society')}>
-                  &gt;_KNOW_MORE
-                </button>
+                <a className="know-more-btn" href="https://forms.office.com/Pages/ResponsePage.aspx?id=9NpbLPKP2Uu9VHxQqyGVkPSN3IJPQDtFrLNKfxMy0nRURFE0UVBUNkhRMEgzTTZWVjNFREtBU1ZYWS4u" target="_blank" rel="noopener noreferrer" aria-label="Join Us Registration Form">
+                  &gt;_JOIN_US
+                </a>
               </div>
             </motion.div>
           </div>

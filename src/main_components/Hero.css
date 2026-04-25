@@ -281,6 +281,8 @@
   cursor: pointer;
   text-transform: uppercase;
   font-weight: bold;
+  text-decoration: none;
+  display: inline-block;
 }
 
 .btn-corner {
